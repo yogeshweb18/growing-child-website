@@ -187,7 +187,7 @@ export default function GrowingChild() {
             animation: 'bounce 2s ease-in-out infinite',
             display: 'inline-block'
           }}>
-            I'm 9 Years Old! 🎉
+            Pranav is 9 Years Old! 🎉
           </h1>
           
           <p style={{
@@ -197,7 +197,7 @@ export default function GrowingChild() {
             marginTop: '10px',
             textShadow: '2px 2px 4px rgba(0,0,0,0.2)'
           }}>
-            Growing Up is AWESOME!
+            Happy Birthday Pranav! Growing Up is AWESOME!
           </p>
         </div>
 
@@ -217,7 +217,7 @@ export default function GrowingChild() {
             marginBottom: '30px',
             fontWeight: '700'
           }}>
-            Watch Me Grow! 📏
+            Watch Pranav Grow! 📏
           </h2>
           
           <div style={{
@@ -281,7 +281,7 @@ export default function GrowingChild() {
             marginBottom: '30px',
             fontWeight: '700'
           }}>
-            My Amazing Journey! 🚀
+            Pranav's Amazing Journey! 🚀
           </h2>
           
           <div style={{
