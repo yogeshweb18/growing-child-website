@@ -7,16 +7,20 @@ export default function GrowingChild() {
   const [showConfetti, setShowConfetti] = useState(false);
 
   const milestones = [
-    { age: 1, title: "First Steps", icon: "👶", color: "#FFB6C1" },
-    { age: 2, title: "First Words", icon: "🗣️", color: "#98D8C8" },
-    { age: 3, title: "Preschool Start", icon: "🎒", color: "#FFD93D" },
-    { age: 4, title: "Making Friends", icon: "👫", color: "#A8E6CF" },
-    { age: 5, title: "Learning to Read", icon: "📚", color: "#FFB347" },
-    { age: 6, title: "Lost First Tooth", icon: "🦷", color: "#B4A7D6" },
-    { age: 7, title: "Riding a Bike", icon: "🚲", color: "#F4A6D7" },
-    { age: 8, title: "Sports Champion", icon: "⚽", color: "#87CEEB" },
-    { age: 9, title: "Super Smart!", icon: "🌟", color: "#FFD700" }
+    { age: 1, title: "First Steps", icon: "👶", color: "#FFB6C1", photo: null },
+    { age: 2, title: "First Words", icon: "🗣️", color: "#98D8C8", photo: null },
+    { age: 3, title: "Preschool Start", icon: "🎒", color: "#FFD93D", photo: null },
+    { age: 4, title: "Making Friends", icon: "👫", color: "#A8E6CF", photo: null },
+    { age: 5, title: "Learning to Read", icon: "📚", color: "#FFB347", photo: null },
+    { age: 6, title: "Lost First Tooth", icon: "🦷", color: "#B4A7D6", photo: null },
+    { age: 7, title: "Riding a Bike", icon: "🚲", color: "#F4A6D7", photo: null },
+    { age: 8, title: "Sports Champion", icon: "⚽", color: "#87CEEB", photo: null },
+    { age: 9, title: "Super Smart!", icon: "🌟", color: "#FFD700", photo: "/growing-child-website/pranav-age-9.jpeg" }
   ];
+  
+  // You can add Pranav's photos here by replacing null with the image URL
+  // For example: photo: "https://your-image-url.com/pranav-age-9.jpg"
+  // Or use local images: photo: "/images/pranav-9.jpg"
 
   const funFacts = [
     "You're getting taller every day! 📏",
@@ -222,47 +226,154 @@ export default function GrowingChild() {
           
           <div style={{
             display: 'flex',
+            alignItems: 'center',
             justifyContent: 'center',
-            alignItems: 'flex-end',
-            height: '300px',
-            gap: '10px'
+            gap: '40px',
+            flexWrap: 'wrap'
           }}>
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((bar) => (
-              <div
-                key={bar}
-                style={{
-                  width: '60px',
-                  height: `${bar * 30}px`,
-                  background: `linear-gradient(to top, ${['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#DDA15E', '#BC6C25', '#E63946'][bar - 1]}, ${['#FF8E8E', '#6FE8DE', '#67D0E3', '#FFBFA0', '#B8E8DC', '#F0BC82', '#D98E49', '#FF6B7A'][bar - 1]})`,
-                  borderRadius: '15px 15px 0 0',
-                  transition: 'all 0.5s ease',
-                  transform: height === bar ? 'scale(1.1)' : 'scale(1)',
-                  opacity: height >= bar ? 1 : 0.3,
-                  boxShadow: height === bar ? '0 10px 30px rgba(0,0,0,0.2)' : 'none',
-                  animation: height === bar ? 'wiggle 0.5s ease' : 'none'
-                }}
-              >
+            {/* Bar Graph */}
+            <div style={{
+              flex: '1',
+              minWidth: '300px',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center'
+            }}>
+              <div style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'flex-end',
+                height: '300px',
+                gap: '10px'
+              }}>
+                {[1, 2, 3, 4, 5, 6, 7, 8].map((bar) => (
+                  <div
+                    key={bar}
+                    style={{
+                      width: '60px',
+                      height: `${bar * 30}px`,
+                      background: `linear-gradient(to top, ${['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#DDA15E', '#BC6C25', '#E63946'][bar - 1]}, ${['#FF8E8E', '#6FE8DE', '#67D0E3', '#FFBFA0', '#B8E8DC', '#F0BC82', '#D98E49', '#FF6B7A'][bar - 1]})`,
+                      borderRadius: '15px 15px 0 0',
+                      transition: 'all 0.5s ease',
+                      transform: height === bar ? 'scale(1.1)' : 'scale(1)',
+                      opacity: height >= bar ? 1 : 0.3,
+                      boxShadow: height === bar ? '0 10px 30px rgba(0,0,0,0.2)' : 'none',
+                      animation: height === bar ? 'wiggle 0.5s ease' : 'none'
+                    }}
+                  >
+                    <div style={{
+                      textAlign: 'center',
+                      fontSize: '1.5rem',
+                      marginTop: '-30px',
+                      fontWeight: '700'
+                    }}>
+                      {bar === height && '⭐'}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              <p style={{
+                textAlign: 'center',
+                marginTop: '30px',
+                fontSize: '1.3rem',
+                color: '#555',
+                fontWeight: '600'
+              }}>
+                Age {height} 🎂
+              </p>
+            </div>
+
+            {/* Age 9 Featured Photo */}
+            <div style={{
+              flex: '0 0 auto',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '20px'
+            }}>
+              <div style={{
+                position: 'relative',
+                animation: 'pulse 2s ease-in-out infinite'
+              }}>
                 <div style={{
-                  textAlign: 'center',
-                  fontSize: '1.5rem',
-                  marginTop: '-30px',
-                  fontWeight: '700'
+                  width: '250px',
+                  height: '250px',
+                  borderRadius: '50%',
+                  background: milestones[8].photo 
+                    ? `url(${milestones[8].photo})` 
+                    : 'linear-gradient(135deg, #FFD700, #FFA500)',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  border: '8px solid #FFD700',
+                  boxShadow: '0 15px 40px rgba(255, 215, 0, 0.4), 0 0 0 15px rgba(255, 215, 0, 0.2)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '6rem',
+                  position: 'relative',
+                  overflow: 'hidden'
                 }}>
-                  {bar === height && '⭐'}
+                  {!milestones[8].photo && '🌟'}
+                  
+                  {/* Sparkle effect */}
+                  <div style={{
+                    position: 'absolute',
+                    top: '-10px',
+                    right: '20px',
+                    animation: 'spin 3s linear infinite'
+                  }}>
+                    <Sparkles size={50} color="#FFD700" fill="#FFD700" />
+                  </div>
+                </div>
+                
+                {/* Birthday badge */}
+                <div style={{
+                  position: 'absolute',
+                  bottom: '10px',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  background: 'linear-gradient(135deg, #FF6B9D, #C06C84)',
+                  color: '#fff',
+                  padding: '8px 20px',
+                  borderRadius: '20px',
+                  fontWeight: '700',
+                  fontSize: '1.1rem',
+                  boxShadow: '0 5px 15px rgba(0,0,0,0.3)',
+                  whiteSpace: 'nowrap'
+                }}>
+                  9 Years Old! 🎉
                 </div>
               </div>
-            ))}
+              
+              <div style={{
+                textAlign: 'center',
+                background: 'linear-gradient(135deg, #FFD700, #FFA500)',
+                padding: '15px 30px',
+                borderRadius: '20px',
+                boxShadow: '0 5px 15px rgba(255, 215, 0, 0.3)'
+              }}>
+                <div style={{
+                  fontSize: '1.5rem',
+                  fontWeight: '700',
+                  color: '#fff',
+                  textShadow: '2px 2px 4px rgba(0,0,0,0.2)'
+                }}>
+                  Birthday Boy! 🎂
+                </div>
+                {!milestones[8].photo && (
+                  <div style={{
+                    fontSize: '0.9rem',
+                    color: 'rgba(255, 255, 255, 0.9)',
+                    marginTop: '5px',
+                    fontStyle: 'italic'
+                  }}>
+                    Add Pranav's photo here
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
-          
-          <p style={{
-            textAlign: 'center',
-            marginTop: '30px',
-            fontSize: '1.3rem',
-            color: '#555',
-            fontWeight: '600'
-          }}>
-            Age {height} 🎂
-          </p>
         </div>
 
         {/* Milestones Timeline */}
@@ -301,16 +412,33 @@ export default function GrowingChild() {
                   textAlign: 'center',
                   cursor: 'pointer',
                   boxShadow: '0 10px 25px rgba(0,0,0,0.15)',
-                  animation: `fadeInUp 0.5s ease ${index * 0.1}s backwards`
+                  animation: `fadeInUp 0.5s ease ${index * 0.1}s backwards`,
+                  position: 'relative',
+                  overflow: 'hidden'
                 }}
               >
+                {/* Photo section */}
                 <div style={{
+                  width: '120px',
+                  height: '120px',
+                  margin: '0 auto 15px',
+                  borderRadius: '50%',
+                  background: milestone.photo 
+                    ? `url(${milestone.photo})` 
+                    : 'rgba(255, 255, 255, 0.3)',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  border: '4px solid rgba(255, 255, 255, 0.5)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                   fontSize: '3.5rem',
-                  marginBottom: '10px',
+                  boxShadow: '0 5px 15px rgba(0,0,0,0.2)',
                   animation: milestone.age === 9 ? 'pulse 1.5s ease-in-out infinite' : 'none'
                 }}>
-                  {milestone.icon}
+                  {!milestone.photo && milestone.icon}
                 </div>
+                
                 <div style={{
                   fontSize: '1.8rem',
                   fontWeight: '700',
@@ -327,6 +455,16 @@ export default function GrowingChild() {
                 }}>
                   {milestone.title}
                 </div>
+                {!milestone.photo && (
+                  <div style={{
+                    fontSize: '0.85rem',
+                    color: 'rgba(255, 255, 255, 0.8)',
+                    marginTop: '8px',
+                    fontStyle: 'italic'
+                  }}>
+                    Add Pranav's photo
+                  </div>
+                )}
                 {milestone.age === 9 && (
                   <div style={{
                     marginTop: '10px',
@@ -405,11 +543,26 @@ export default function GrowingChild() {
             textAlign: 'center',
             boxShadow: '0 30px 80px rgba(0,0,0,0.4)',
             zIndex: 1000,
-            animation: 'pulse 0.5s ease'
+            animation: 'pulse 0.5s ease',
+            maxWidth: '90%'
           }}>
-            <div style={{ fontSize: '5rem', marginBottom: '20px' }}>
-              {selectedMilestone.icon}
-            </div>
+            {selectedMilestone.photo ? (
+              <div style={{
+                width: '200px',
+                height: '200px',
+                margin: '0 auto 20px',
+                borderRadius: '50%',
+                background: `url(${selectedMilestone.photo})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                border: `6px solid ${selectedMilestone.color}`,
+                boxShadow: '0 10px 30px rgba(0,0,0,0.3)'
+              }} />
+            ) : (
+              <div style={{ fontSize: '5rem', marginBottom: '20px' }}>
+                {selectedMilestone.icon}
+              </div>
+            )}
             <h3 style={{
               fontSize: '2.5rem',
               color: selectedMilestone.color,
@@ -423,7 +576,7 @@ export default function GrowingChild() {
               color: '#666',
               fontWeight: '600'
             }}>
-              Age {selectedMilestone.age} Achievement! 🎊
+              Pranav at Age {selectedMilestone.age}! 🎊
             </p>
             <button
               onClick={() => setSelectedMilestone(null)}
