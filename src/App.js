@@ -28,7 +28,7 @@ export default function GrowingChild() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setHeight(prev => (prev % 7) + 1);
+      setHeight(prev => (prev % 8) + 1);
     }, 2000);
     return () => clearInterval(interval);
   }, []);
@@ -227,13 +227,13 @@ export default function GrowingChild() {
             height: '300px',
             gap: '10px'
           }}>
-            {[1, 2, 3, 4, 5, 6, 7].map((bar) => (
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((bar) => (
               <div
                 key={bar}
                 style={{
                   width: '60px',
-                  height: `${bar * 35}px`,
-                  background: `linear-gradient(to top, ${['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#DDA15E', '#BC6C25'][bar - 1]}, ${['#FF8E8E', '#6FE8DE', '#67D0E3', '#FFBFA0', '#B8E8DC', '#F0BC82', '#D98E49'][bar - 1]})`,
+                  height: `${bar * 30}px`,
+                  background: `linear-gradient(to top, ${['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#DDA15E', '#BC6C25', '#E63946'][bar - 1]}, ${['#FF8E8E', '#6FE8DE', '#67D0E3', '#FFBFA0', '#B8E8DC', '#F0BC82', '#D98E49', '#FF6B7A'][bar - 1]})`,
                   borderRadius: '15px 15px 0 0',
                   transition: 'all 0.5s ease',
                   transform: height === bar ? 'scale(1.1)' : 'scale(1)',
