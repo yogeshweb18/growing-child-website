@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/growing-child-website/static/css/main.e6c13ad2.css",
+    "main.js": "/growing-child-website/static/js/main.3c73e2b1.js",
+    "static/js/453.54268924.chunk.js": "/growing-child-website/static/js/453.54268924.chunk.js",
+    "index.html": "/growing-child-website/index.html",
+    "main.e6c13ad2.css.map": "/growing-child-website/static/css/main.e6c13ad2.css.map",
+    "main.3c73e2b1.js.map": "/growing-child-website/static/js/main.3c73e2b1.js.map",
+    "453.54268924.chunk.js.map": "/growing-child-website/static/js/453.54268924.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.3c73e2b1.js"
+  ]
+}
