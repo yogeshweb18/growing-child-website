@@ -209,16 +209,16 @@ export default function GrowingChild() {
         <div style={{
           background: 'rgba(255, 255, 255, 0.95)',
           borderRadius: '30px',
-          padding: '40px',
+          padding: 'clamp(20px, 5vw, 40px)',
           marginBottom: '40px',
           boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
           animation: 'fadeInUp 0.8s ease 0.2s backwards'
         }}>
           <h2 style={{
             textAlign: 'center',
-            fontSize: '2.5rem',
+            fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
             color: '#667eea',
-            marginBottom: '30px',
+            marginBottom: 'clamp(20px, 4vw, 30px)',
             fontWeight: '700'
           }}>
             Watch Pranav Grow! 📏
@@ -228,13 +228,14 @@ export default function GrowingChild() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '40px',
+            gap: 'clamp(20px, 5vw, 40px)',
             flexWrap: 'wrap'
           }}>
             {/* Bar Graph */}
             <div style={{
-              flex: '1',
-              minWidth: '300px',
+              flex: '1 1 300px',
+              minWidth: '280px',
+              maxWidth: '500px',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center'
@@ -243,29 +244,37 @@ export default function GrowingChild() {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'flex-end',
-                height: '300px',
-                gap: '10px'
+                height: 'clamp(200px, 40vw, 300px)',
+                gap: 'clamp(5px, 1.5vw, 10px)',
+                width: '100%',
+                maxWidth: '500px'
               }}>
                 {[1, 2, 3, 4, 5, 6, 7, 8].map((bar) => (
                   <div
                     key={bar}
                     style={{
-                      width: '60px',
-                      height: `${bar * 30}px`,
+                      flex: '1',
+                      maxWidth: '60px',
+                      height: `${bar * 12.5}%`,
                       background: `linear-gradient(to top, ${['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#DDA15E', '#BC6C25', '#E63946'][bar - 1]}, ${['#FF8E8E', '#6FE8DE', '#67D0E3', '#FFBFA0', '#B8E8DC', '#F0BC82', '#D98E49', '#FF6B7A'][bar - 1]})`,
                       borderRadius: '15px 15px 0 0',
                       transition: 'all 0.5s ease',
                       transform: height === bar ? 'scale(1.1)' : 'scale(1)',
                       opacity: height >= bar ? 1 : 0.3,
                       boxShadow: height === bar ? '0 10px 30px rgba(0,0,0,0.2)' : 'none',
-                      animation: height === bar ? 'wiggle 0.5s ease' : 'none'
+                      animation: height === bar ? 'wiggle 0.5s ease' : 'none',
+                      position: 'relative'
                     }}
                   >
                     <div style={{
+                      position: 'absolute',
+                      top: '-30px',
+                      left: '50%',
+                      transform: 'translateX(-50%)',
                       textAlign: 'center',
-                      fontSize: '1.5rem',
-                      marginTop: '-30px',
-                      fontWeight: '700'
+                      fontSize: 'clamp(1rem, 3vw, 1.5rem)',
+                      fontWeight: '700',
+                      whiteSpace: 'nowrap'
                     }}>
                       {bar === height && '⭐'}
                     </div>
@@ -275,8 +284,8 @@ export default function GrowingChild() {
               
               <p style={{
                 textAlign: 'center',
-                marginTop: '30px',
-                fontSize: '1.3rem',
+                marginTop: 'clamp(20px, 4vw, 30px)',
+                fontSize: 'clamp(1rem, 3vw, 1.3rem)',
                 color: '#555',
                 fontWeight: '600'
               }}>
@@ -286,31 +295,36 @@ export default function GrowingChild() {
 
             {/* Age 9 Featured Photo */}
             <div style={{
-              flex: '0 0 auto',
+              flex: '0 1 auto',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              gap: '20px'
+              gap: 'clamp(15px, 3vw, 20px)',
+              width: '100%',
+              maxWidth: '300px'
             }}>
               <div style={{
                 position: 'relative',
-                animation: 'pulse 2s ease-in-out infinite'
+                animation: 'pulse 2s ease-in-out infinite',
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center'
               }}>
                 <div style={{
-                  width: '250px',
-                  height: '250px',
+                  width: 'clamp(180px, 40vw, 250px)',
+                  height: 'clamp(180px, 40vw, 250px)',
                   borderRadius: '50%',
                   background: milestones[8].photo 
                     ? `url(${milestones[8].photo})` 
                     : 'linear-gradient(135deg, #FFD700, #FFA500)',
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
-                  border: '8px solid #FFD700',
-                  boxShadow: '0 15px 40px rgba(255, 215, 0, 0.4), 0 0 0 15px rgba(255, 215, 0, 0.2)',
+                  border: 'clamp(4px, 1.5vw, 8px) solid #FFD700',
+                  boxShadow: '0 15px 40px rgba(255, 215, 0, 0.4), 0 0 0 clamp(8px, 2vw, 15px) rgba(255, 215, 0, 0.2)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontSize: '6rem',
+                  fontSize: 'clamp(3rem, 10vw, 6rem)',
                   position: 'relative',
                   overflow: 'hidden'
                 }}>
@@ -319,26 +333,26 @@ export default function GrowingChild() {
                   {/* Sparkle effect */}
                   <div style={{
                     position: 'absolute',
-                    top: '-10px',
-                    right: '20px',
+                    top: '-5px',
+                    right: 'clamp(10px, 3vw, 20px)',
                     animation: 'spin 3s linear infinite'
                   }}>
-                    <Sparkles size={50} color="#FFD700" fill="#FFD700" />
+                    <Sparkles size={window.innerWidth < 768 ? 30 : 50} color="#FFD700" fill="#FFD700" />
                   </div>
                 </div>
                 
                 {/* Birthday badge */}
                 <div style={{
                   position: 'absolute',
-                  bottom: '10px',
+                  bottom: 'clamp(5px, 2vw, 10px)',
                   left: '50%',
                   transform: 'translateX(-50%)',
                   background: 'linear-gradient(135deg, #FF6B9D, #C06C84)',
                   color: '#fff',
-                  padding: '8px 20px',
+                  padding: 'clamp(6px, 1.5vw, 8px) clamp(12px, 3vw, 20px)',
                   borderRadius: '20px',
                   fontWeight: '700',
-                  fontSize: '1.1rem',
+                  fontSize: 'clamp(0.9rem, 2.5vw, 1.1rem)',
                   boxShadow: '0 5px 15px rgba(0,0,0,0.3)',
                   whiteSpace: 'nowrap'
                 }}>
@@ -349,12 +363,14 @@ export default function GrowingChild() {
               <div style={{
                 textAlign: 'center',
                 background: 'linear-gradient(135deg, #FFD700, #FFA500)',
-                padding: '15px 30px',
+                padding: 'clamp(12px, 3vw, 15px) clamp(20px, 5vw, 30px)',
                 borderRadius: '20px',
-                boxShadow: '0 5px 15px rgba(255, 215, 0, 0.3)'
+                boxShadow: '0 5px 15px rgba(255, 215, 0, 0.3)',
+                width: '100%',
+                maxWidth: '250px'
               }}>
                 <div style={{
-                  fontSize: '1.5rem',
+                  fontSize: 'clamp(1.2rem, 3vw, 1.5rem)',
                   fontWeight: '700',
                   color: '#fff',
                   textShadow: '2px 2px 4px rgba(0,0,0,0.2)'
@@ -363,7 +379,7 @@ export default function GrowingChild() {
                 </div>
                 {!milestones[8].photo && (
                   <div style={{
-                    fontSize: '0.9rem',
+                    fontSize: 'clamp(0.75rem, 2vw, 0.9rem)',
                     color: 'rgba(255, 255, 255, 0.9)',
                     marginTop: '5px',
                     fontStyle: 'italic'
